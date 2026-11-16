@@ -67,7 +67,7 @@ const excluir = async (req, res) => {
         }
 
         await contato.destroy();
-        res.status(204).send();
+        res.status(204).send({ message: "Contato excluído com sucesso." });
     } catch (error) {
         console.error("Erro ao excluir contato:", error);
         res.status(500).json({ erro: "Erro ao excluir contato." });

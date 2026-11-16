@@ -32,7 +32,8 @@ const editar = async (req, res) => {
         const contato = await Contato.findByPk(req.params.id);
 
         if (!contato) {
-            return res.status(404).send("Contato não encontrado.");
+            req.flash("error", "Contato não encontrado.");
+            return res.redirect("/contatos");
         }
 
         res.render("contatos/edit", { contato });
@@ -50,7 +51,8 @@ const atualizar = async (req, res) => {
         const contato = await Contato.findByPk(contatoId);
 
         if (!contato) {
-            return res.status(404).send("Contato não encontrado.");
+            req.flash("error", "Contato não encontrado.");
+            return res.redirect("/contatos");
         }
 
         await contato.update({ nome, email, telefone });
@@ -67,7 +69,8 @@ const excluir = async (req, res) => {
         const contato = await Contato.findByPk(req.params.id);
 
         if (!contato) {
-            return res.status(404).send("Contato não encontrado.");
+            req.flash("error", "Contato não encontrado.");
+            return res.redirect("/contatos");
         }
 
         await contato.destroy();
