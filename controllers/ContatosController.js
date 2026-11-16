@@ -18,6 +18,7 @@ const salvar = async (req, res) => {
     try {
         const { nome, email, telefone } = req.body;
         await Contato.create({ nome, email, telefone });
+        req.flash("success", "Contato criado com sucesso!");
         res.redirect("/contatos");
     } catch (error) {
         console.error("Erro ao salvar contato:", error);
@@ -53,6 +54,7 @@ const atualizar = async (req, res) => {
         }
 
         await contato.update({ nome, email, telefone });
+        req.flash("success", "Contato atualizado com sucesso!");
         res.redirect("/contatos");
     } catch (error) {
         console.error("Erro ao atualizar contato:", error);
@@ -69,6 +71,7 @@ const excluir = async (req, res) => {
         }
 
         await contato.destroy();
+        req.flash("success", "Contato excluído com sucesso!");
         res.redirect("/contatos");
     } catch (error) {
         console.error("Erro ao excluir contato:", error);
