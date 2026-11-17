@@ -1,5 +1,4 @@
 import Usuario from "../models/Usuario.js";
-import Usuario from "../models/Usuario.js";
 
 const listar = async (req, res) => {
     try {
@@ -18,7 +17,7 @@ const novo = (req, res) => {
 const salvar = async (req, res) => {
     try {
         const { nome, email, senha } = req.body;
-        await Contato.create({ nome, email, senha });
+        await Usuario.create({ nome, email, senha });
         req.flash("success", "Usuario criado com sucesso!");
         res.redirect("/usuarios");
     } catch (error) {

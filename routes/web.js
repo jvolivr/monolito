@@ -1,6 +1,8 @@
 import express from 'express';
 const router = express.Router();
 import ContatosController from '../controllers/ContatosController.js';
+import ProdutosController from '../controllers/ProdutosController.js';
+import UsuariosController from '../controllers/UsuariosController.js';
 
 
 router.get("/", (req, res) => {
@@ -18,5 +20,28 @@ router.get("/usuarios", (req, res) => {
     res.render("usuarios");
 });
 
+
+router.get("/produtos", ProdutosController.listar);
+router.get("/produtos/novo", ProdutosController.novo);
+router.post("/produtos/salvar", ProdutosController.salvar);
+router.get("/produtos/:id/edit", ProdutosController.editar);
+router.post("/produtos/atualizar", ProdutosController.atualizar);
+router.post("/produtos/:id/excluir", ProdutosController.excluir);
+
+router.get("/usuarios", (req, res) => {
+    res.render("usuarios");
+});
+
+
+router.get("/usuarios", UsuariosController.listar);
+router.get("/usuarios/novo", UsuariosController.novo);
+router.post("/usuarios/salvar", UsuariosController.salvar);
+router.get("/usuarios/:id/edit", UsuariosController.editar);
+router.post("/usuarios/atualizar", UsuariosController.atualizar);
+router.post("/usuarios/:id/excluir", UsuariosController.excluir);
+
+router.get("/usuarios", (req, res) => {
+    res.render("usuarios");
+});
 
 export default router;

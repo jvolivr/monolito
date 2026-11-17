@@ -6,31 +6,37 @@
     <body>
         <%- include("includes/navbar"); %>
 
-            <% const usuario=locals.usuario || { id: locals.usuarioId }; %>
+            <% const produto=locals.produto || { id: locals.produtoId }; %>
 
                 <div class="container">
-                    <h1>Editar usuário <%= usuario.id %>
+                    <h1>Editar produto <%= produto.id %>
                     </h1>
 
-                    <form action="/usuario/atualizar" method="POST">
-                        <input type="hidden" name="id" value="<%= usuario.id %>">
+                    <form action="/produto/atualizar" method="POST">
+                        <input type="hidden" name="id" value="<%= produto.id %>">
 
                         <div class="mb-3">
-                            <label for="nome" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="nome" name="nome" maxlength="100"
-                                value="<%= usuario.nome || '' %>" required>
+                            <label for="referencia" class="form-label">Referência</label>
+                            <input type="text" class="form-control" id="referencia" name="referencia" maxlength="100"
+                                value="<%= produto.referencia || '' %>" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" maxlength="200"
-                                value="<%= usuario.email || '' %>">
+                            <label for="descricao" class="form-label">Descrição</label>
+                            <input type="descricao" class="form-control" id="descricao" name="descricao" maxlength="200"
+                                value="<%= produto.descricao || '' %>">
                         </div>
 
                         <div class="mb-3">
-                            <label for="telefone" class="form-label">Telefone</label>
-                            <input type="tel" class="form-control" id="telefone" name="telefone" maxlength="20"
-                                value="<%= usuario.telefone || '' %>">
+                            <label for="preco" class="form-label">Preço</label>
+                            <input type="preco" class="form-control" id="preco" name="preco" maxlength="20"
+                                value="<%= produto.preco || '' %>">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="estoque" class="form-label">Estoque</label>
+                            <input type="estoque" class="form-control" id="estoque" name="estoque" maxlength="20"
+                                value="<%= produto.estoque || '' %>">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Atualizar</button>

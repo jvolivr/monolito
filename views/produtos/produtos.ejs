@@ -9,37 +9,43 @@
             <div class="container">
                 <%- include("includes/alerts"); %>
 
-                    <h1>Usuários</h1>
+                    <h1>Produtos</h1>
 
-                    <a class="btn btn-primary" href="/usuarios/novo" role="button">Novo Usuário</a>
+                    <a class="btn btn-primary" href="/produtos/novo" role="button">Novo Produto</a>
 
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Nome</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Data e Hora</th>
-                                <th scope="col">Ações</th>
+                                <th scope="col">Referência</th>
+                                <th scope="col">Descrição</th>
+                                <th scope="col">Preço</th>
+                                <th scope="col">Estoque</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <% usuarios.forEach(contato=> { %>
+                            <% produtos.forEach(produto=> { %>
                                 <tr>
                                     <td>
-                                        <%= usuario.nome %>
+                                        <%= produto.referencia %>
                                     </td>
                                     <td>
-                                        <%= usuario.email %>
+                                        <%= produto.descricao %>
                                     </td>
                                     <td>
-                                        <%= usuario.createdAt.toLocaleString() %>
+                                        <%= produto.preco %>
+                                    </td>
+                                    <td>
+                                        <%= produto.estoque %>
+                                    </td>
+                                    <td>
+                                        <%= produto.createdAt.toLocaleString() %>
                                     </td>
                                     <td>
                                         <a class="btn btn-sm btn-outline-primary"
-                                            href="/usuarios/<%= usuario.id %>/edit" role="button">Editar</a>
-                                        <form action="/usuarios/<%= usuario.id %>/excluir" method="POST"
+                                            href="/produtos/<%= produto.id %>/edit" role="button">Editar</a>
+                                        <form action="/produtos/<%= produto.id %>/excluir" method="POST"
                                             class="d-inline"
-                                            onsubmit="return confirm('Deseja realmente excluir este usuário?');">
+                                            onsubmit="return confirm('Deseja realmente excluir este produto?');">
                                             <button type="submit" class="btn btn-sm btn-outline-danger">Excluir</button>
                                         </form>
                                     </td>

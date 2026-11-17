@@ -21,8 +21,8 @@ const salvar = async (req, res) => {
         req.flash("success", "Produto criado com sucesso!");
         res.redirect("/produtos");
     } catch (error) {
-        console.error("Erro ao salvar contato:", error);
-        res.status(500).send("Erro ao salvar contato.");
+        console.error("Erro ao salvar produto:", error);
+        res.status(500).send("Erro ao salvar produto.");
     }
 }
 

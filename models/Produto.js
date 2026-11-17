@@ -8,6 +8,8 @@ const Produto = sequelize.define("produto", {
   },
   descricao: {
     type: DataTypes.STRING(200),
+    defaultValue: "0",
+
   },
   preco: {
     type: DataTypes.STRING(20),
