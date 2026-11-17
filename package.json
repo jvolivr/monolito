@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
   },
-  "author": "Eduardo Tavares",
+  "author": "JV",
   "license": "ISC",
   "dependencies": {
     "connect-flash": "^0.1.1",
