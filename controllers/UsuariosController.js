@@ -33,10 +33,10 @@ const editar = async (req, res) => {
 
         if (!usuario) {
             req.flash("error", "Usuário não encontrado.");
-            return res.redirect("/usuario");
+            return res.redirect("/usuarios");
         }
 
-        res.render("usuario/edit", { usuario });
+        res.render("usuarios/edit", { usuario });
     } catch (error) {
         console.error("Erro ao recuperar usuário:", error);
         res.status(500).send("Erro ao recuperar usuário.");

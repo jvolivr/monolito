@@ -16,8 +16,8 @@ router.get("/contatos/:id/edit", ContatosController.editar);
 router.post("/contatos/atualizar", ContatosController.atualizar);
 router.post("/contatos/:id/excluir", ContatosController.excluir);
 
-router.get("/usuarios", (req, res) => {
-    res.render("usuarios");
+router.get("/contatos", (req, res) => {
+    res.render("contatos");
 });
 
 
@@ -28,8 +28,8 @@ router.get("/produtos/:id/edit", ProdutosController.editar);
 router.post("/produtos/atualizar", ProdutosController.atualizar);
 router.post("/produtos/:id/excluir", ProdutosController.excluir);
 
-router.get("/usuarios", (req, res) => {
-    res.render("usuarios");
+router.get("/produtos", (req, res) => {
+    res.render("produtos");
 });
 
 
