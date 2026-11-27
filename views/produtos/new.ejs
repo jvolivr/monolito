@@ -23,8 +23,16 @@
 
                     <div class="mb-3">
                         <label for="preco" class="form-label">Preço</label>
-                        <input type="preco" class="form-control" id="preco" name="preco" maxlength="20">
+                        <input type="preco" class="form-control" id="preco" name="preco" maxlength="20"
+                            inputmode="numeric" autocomplete="preco">
                     </div>
+                    <script>
+                        const precoInput = document.getElementById('preco');
+
+                        precoInput.addEventListener('input', (event) => {
+                            event.target.value = event.target.value.replace(/\D/g, '');
+                        });
+                    </script>
 
                     <div class="mb-3">
                         <label for="estoque" class="form-label">Estoque</label>

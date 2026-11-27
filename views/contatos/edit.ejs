@@ -30,8 +30,15 @@
                         <div class="mb-3">
                             <label for="telefone" class="form-label">Telefone</label>
                             <input type="tel" class="form-control" id="telefone" name="telefone" maxlength="20"
-                                value="<%= contato.telefone || '' %>">
+                                value="<%= contato.telefone || '' %>" inputmode="numeric" autocomplete="tel">
                         </div>
+                        <script>
+                            const telefoneInput = document.getElementById('telefone');
+
+                            telefoneInput.addEventListener('input', (event) => {
+                                event.target.value = event.target.value.replace(/\D/g, '');
+                            });
+                        </script>
 
                         <button type="submit" class="btn btn-primary">Atualizar</button>
                         <a href="/contatos" class="btn btn-secondary">Cancelar</a>

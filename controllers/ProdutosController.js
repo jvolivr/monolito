@@ -68,7 +68,7 @@ const excluir = async (req, res) => {
     try {
         const produto = await Produto.findByPk(req.params.id);
 
-        if (produto) {
+        if (!produto) {
             req.flash("error", "Produto não encontrado.");
             return res.redirect("/produtos");
         }

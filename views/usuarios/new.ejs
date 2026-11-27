@@ -22,7 +22,26 @@
 
                     <div class="mb-3">
                         <label for="senha" class="form-label">Senha</label>
-                        <input type="senha" class="form-control" id="senha" name="senha" maxlength="64">
+<!-- Se falar que foi IA eu nego kk -->
+                        <div class="position-relative">
+                            <input type="password" class="form-control" id="senha" placeholder="••••••••" required
+                                name="senha" maxlength="64">
+                            <button type="button" class="password-toggle"
+                                onclick="togglePassword('senha', this)">👁️</button>
+                        </div>
+                        <script>
+                            function togglePassword(inputId, button) {
+                                const input = document.getElementById(inputId);
+
+                                if (input.type === "password") {
+                                    input.type = "text";
+                                    button.textContent = "🚫";
+                                } else {
+                                    input.type = "password";
+                                    button.textContent = "👁️"; 
+                                }
+                            }
+                        </script>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Salvar</button>

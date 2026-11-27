@@ -3,8 +3,7 @@ import Produto from "../../models/Produto.js";
 // GET /api/produtos
 const listar = async (req, res) => {
     try {
-        const produtos = await Produto.findAll({ order: [["nome", "ASC"]] });
-        res.json(produtos);
+        const produtos = await Produto.findAll({ order: [["referencia", "ASC"]] }); res.json(produtos);
     } catch (error) {
         console.error("Erro ao listar produtos:", error);
         res.status(500).json({ erro: "Erro ao listar produtos." });
